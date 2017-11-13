@@ -9,6 +9,8 @@ public class Team {
     //public String teamLeader;
     public String teamregion;
     public boolean official; //등록유무
+    public String teamleader;
+
     public Team(){
 
     }
@@ -17,5 +19,19 @@ public class Team {
         this.teamregion = teamregion;
         this.official = official;
     }
+    public Team(String teamName , String teamregion, boolean official,String teamleader){
+        this.teamName = teamName;
+        this.teamregion = teamregion;
+        this.official = official;
+        this.teamleader = teamleader;
+    }
+
+    public String getTeamName() {
+        return teamName;
+    }
+    public String getTeamregion(){
+        return teamregion;
+    }
+    public String getTeamleader(){return teamleader;}
 
 }

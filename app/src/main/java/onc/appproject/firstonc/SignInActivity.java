@@ -16,24 +16,31 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignInActivity extends AppCompatActivity {
     //define view objects
     EditText editTextEmail;
     EditText editTextPassword;
+    EditText editTextName;
     Button buttonSignup;
     TextView textviewMessage;
     ProgressDialog progressDialog;
     //define firebase object
     FirebaseAuth firebaseAuth;
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+        databaseReference = FirebaseDatabase.getInstance().getReference();
         firebaseAuth = FirebaseAuth.getInstance();
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+        editTextName = (EditText) findViewById(R.id.editTextName);
         textviewMessage = (TextView) findViewById(R.id.textviewMessage);
         buttonSignup = (Button) findViewById(R.id.buttonSignup);
         progressDialog = new ProgressDialog(this);
@@ -70,6 +77,10 @@ public class SignInActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+
+                            FirebaseUser user = task.getResult().getUser();
+                            User userModel = new User(user.getEmail(),editTextName.getText().toString());
+                            databaseReference.child("users").child(user.getUid()).setValue(userModel);
                             finish();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         } else {

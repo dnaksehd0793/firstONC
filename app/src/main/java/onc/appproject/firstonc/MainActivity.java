@@ -47,31 +47,31 @@ public class MainActivity extends AppCompatActivity {
     private void setupTabIcons() {
 
         TextView tabOne = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-        tabOne.setText("홈");
+        //tabOne.setText("홈");
         tabOne.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.home, 0, 0);
         tabLayout.getTabAt(0).setCustomView(tabOne);
 
         TextView tabTwo = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-        tabTwo.setText("팀");
+        //tabTwo.setText("팀");
         tabTwo.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.team, 0, 0);
         tabLayout.getTabAt(1).setCustomView(tabTwo);
 
         TextView tabThree = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-        tabThree.setText("대회");
+        //tabThree.setText("대회");
         tabThree.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.league, 0, 0);
         tabLayout.getTabAt(2).setCustomView(tabThree);
 
         TextView tabFour = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-        tabThree.setText("라커룸");
+        //tabThree.setText("라커룸");
         tabThree.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.uniform, 0, 0);
         tabLayout.getTabAt(3).setCustomView(tabFour);
     }
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new OneFragment(), "홈");
-        adapter.addFragment(new TwoFragment(), "팀");
-        adapter.addFragment(new ThreeFragment(), "대회");
-        adapter.addFragment(new FourFragment(), "라커룸");
+        adapter.addFragment(new OneFragment());
+        adapter.addFragment(new TwoFragment());
+        adapter.addFragment(new ThreeFragment());
+        adapter.addFragment(new FourFragment());
         viewPager.setAdapter(adapter);
     }
 
@@ -94,14 +94,15 @@ public class MainActivity extends AppCompatActivity {
             return mFragmentList.size();
         }
 
-        public void addFragment(Fragment fragment, String title) {
+        public void addFragment(Fragment fragment) {
             mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
+           // mFragmentTitleList.add(title);
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return mFragmentTitleList.get(position);
+            return null;
+            //return mFragmentTitleList.get(position);
         }
     }
 }

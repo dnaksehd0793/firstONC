@@ -48,7 +48,7 @@
         android:text="팀 생성을 신청하는 계정으로 팀장 권한이 부여됩니다.\n팀 생성 버튼을 누르면 팀생성 신청이 완료됩니다." />
 
     <Button
-        android:id="@+id/createTeamwithinfo"
+        android:id="@+id/teammakebutton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="팀 생성" />

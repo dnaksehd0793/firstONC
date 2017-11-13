@@ -19,7 +19,7 @@ public class SplashActivity extends AppCompatActivity {
                 finish();
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
             }
-        }, 2500);// 2.5 초
+        }, 1000);// 1.5 초
 
     }
 }
