@@ -28,6 +28,7 @@ public class createTeam extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
     boolean checker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,11 +45,28 @@ public class createTeam extends AppCompatActivity {
                 Checked(v); // 체크되었을 때 동작코드
             }
         });
+        //Toast.makeText(this, mFirebaseUser.getEmail(), Toast.LENGTH_LONG).show();
+        name = mFirebaseUser.getEmail();
+
+        DatabaseReference databaseRef2 = firebaseDatabase.getReference("users");
+        databaseRef2.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot fileSnapshot : dataSnapshot.getChildren())
+                {
+                    //User readUser = (User)fileSnapshot.getValue(User.class);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         teammakebutton.setOnClickListener((view -> {
-
             Team team = new Team(textteamname.getText().toString(),textteamregion.getText().toString(),
-                    checker);
+                    checker,name);
             databaseReference.child("team").push().setValue(team);
             Toast.makeText(this, "팀 생성이 완료되었습니다.", Toast.LENGTH_LONG).show();
             finish();

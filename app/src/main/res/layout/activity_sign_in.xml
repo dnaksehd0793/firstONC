@@ -20,32 +20,47 @@
         android:text="이 앱은 회원가입을 해야 정상적으로 사용할 수 있습니다.\n Email과 비밀번호를 등록해 주세요."
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/editTextEmail"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:layout_gravity="center_horizontal"
-        android:hint="이메일입력"
-        android:inputType="textEmailAddress" />
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_gravity="center_horizontal"
+            android:hint="이메일입력"
+            android:inputType="textEmailAddress" />
+    </android.support.design.widget.TextInputLayout>
 
-    <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="250dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:hint="비밀번호 입력"
-        android:inputType="textPassword" />
-    <EditText
-        android:id="@+id/editTextName"
-        android:layout_width="250dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:hint="이름 입력"
-        android:inputType="textPersonName" />
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="250dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:hint="비밀번호 입력"
+            android:inputType="textPassword" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="250dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:hint="이름 입력"
+            android:inputType="textPersonName" />
+    </android.support.design.widget.TextInputLayout>
+
 
     <Button
         android:id="@+id/buttonSignup"
